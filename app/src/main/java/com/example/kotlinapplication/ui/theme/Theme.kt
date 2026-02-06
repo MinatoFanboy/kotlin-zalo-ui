@@ -13,7 +13,6 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
@@ -28,6 +27,7 @@ data class ZaColorSchemes(
     val uiBackgroundPressed: Color,
     val uiBackgroundSelected: Color,
     val uiBackgroundTransparent: Color,
+    val primary: Color,
     val selectionLabel: Color,
     val text1: Color,
     val text2: Color,
@@ -59,9 +59,12 @@ data class ZaColorSchemes(
 data class ZaTypographySchemes(
     val headingXLarge: TextStyle,
     val textLarge: TextStyle,
+    val textXLargeM: TextStyle,
     val textNormalM: TextStyle,
     val textSmall: TextStyle,
     val textXSmall: TextStyle,
+    val textXSmallM: TextStyle,
+    val textXXXSmallM: TextStyle,
     val titleNormal: TextStyle,
     val titleSmall: TextStyle,
 )
@@ -77,6 +80,7 @@ private val DarkColorSchemes = ZaColorSchemes(
     uiBackgroundPressed = neutralGray80,
     uiBackgroundSelected = neutralGray90,
     uiBackgroundTransparent = black0,
+    primary = blue60,
     /* Text */
     selectionLabel = blue40,
     text1 = neutralGray10,
@@ -123,6 +127,7 @@ private val LightColorSchemes = ZaColorSchemes(
     uiBackgroundPressed = neutralGray20,
     uiBackgroundSelected = neutralGray10,
     uiBackgroundTransparent = white0,
+    primary = blue60,
     /* Text */
     selectionLabel = blue70,
     text1 = neutralGray100,
@@ -170,6 +175,12 @@ private val AppTypography = ZaTypographySchemes(
         fontWeight = FontWeight.Normal,
         lineHeight = 22.sp
     ),
+    textXLargeM = TextStyle(
+        fontFamily = AppFont,
+        fontSize = 18.sp,
+        fontWeight = FontWeight.Medium,
+        lineHeight = 24.sp
+    ),
     textNormalM = TextStyle(
         fontFamily = AppFont,
         fontSize = 15.sp,
@@ -187,6 +198,18 @@ private val AppTypography = ZaTypographySchemes(
         fontSize = 13.sp,
         fontWeight = FontWeight.Normal,
         lineHeight = 18.sp
+    ),
+    textXSmallM = TextStyle(
+        fontFamily = AppFont,
+        fontSize = 13.sp,
+        fontWeight = FontWeight.Medium,
+        lineHeight = 18.sp
+    ),
+    textXXXSmallM = TextStyle(
+        fontFamily = AppFont,
+        fontSize = 11.sp,
+        fontWeight = FontWeight.Medium,
+        lineHeight = 16.sp
     ),
     titleNormal = TextStyle(
         fontFamily = AppFont,

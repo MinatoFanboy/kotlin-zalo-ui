@@ -13,9 +13,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.kotlinapplication.ui.navigation.NavGraph
-import com.example.kotlinapplication.ui.navigation.ZaTopBar
-import com.example.kotlinapplication.ui.navigation.routeToTitle
+import com.example.kotlinapplication.navigation.NavGraph
+import com.example.kotlinapplication.navigation.ZaTopBar
+import com.example.kotlinapplication.navigation.routeToTitle
 import com.example.kotlinapplication.ui.theme.KotlinApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,8 +35,7 @@ class MainActivity : ComponentActivity() {
 
             KotlinApplicationTheme {
                 Scaffold(
-                    modifier = Modifier
-                        .fillMaxSize(),
+                    modifier = Modifier.fillMaxSize(),
                     topBar = {
                         ZaTopBar(
                             title = currentScreen,

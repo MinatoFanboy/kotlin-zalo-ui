@@ -25,16 +25,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.kotlinapplication.ui.theme.KotlinApplicationTheme
 import com.example.kotlinapplication.ui.theme.LocalZaColors
 import com.example.kotlinapplication.ui.theme.LocalZaTypography
-import com.example.kotlinapplication.ui.theme.blue60
 import com.example.kotlinapplication.ui.theme.green60
 import com.example.kotlinapplication.ui.theme.red60
 import com.example.kotlinapplication.ui.theme.yellow60
@@ -52,15 +50,17 @@ fun ZaInput(
     modifier: Modifier = Modifier,
     label: String? = null,
     value: TextFieldValue,
-    placeholder: String,
+    placeholder: String = "Placeholder",
     onValueChange: (TextFieldValue) -> Unit,
     helper: String? = null,
     error: String? = null,
     enabled: Boolean? = true,
     passwordStrength: Boolean? = false,
-    isPassword: Boolean? = false
+    isPassword: Boolean? = false,
+    isChecked: Boolean? = false,
+    focusedDefault: Boolean? = false,
 ) {
-    var isFocused by remember { mutableStateOf(false) }
+    var isFocused by remember { mutableStateOf(focusedDefault == true) }
     var isShowPassword by remember { mutableStateOf(false) }
 
     val hasError = !error.isNullOrBlank()
@@ -86,12 +86,13 @@ fun ZaInput(
             ),
             modifier = Modifier
                 .fillMaxWidth()
-                .onFocusChanged { focusState ->
-                isFocused = focusState.isFocused
-            },
+                .onFocusChanged {
+//                    isFocused = focusState.isFocused
+                },
             singleLine = true,
             enabled = enabled == true,
-            visualTransformation = if (isPassword == true && isShowPassword) VisualTransformation.None else PasswordVisualTransformation(),
+            visualTransformation = if (isPassword == true && !isShowPassword) PasswordVisualTransformation() else VisualTransformation.None,
+            cursorBrush = SolidColor(LocalZaColors.current.primary),
             decorationBox = { innerTextField ->
                 Row(
                     modifier = Modifier
@@ -101,7 +102,7 @@ fun ZaInput(
                             color =
                                 if (enabled == true) {
                                     if (isFocused)
-                                        blue60
+                                        LocalZaColors.current.primary
                                     else (
                                             if (hasError)
                                                 red60
@@ -109,16 +110,16 @@ fun ZaInput(
                                                 LocalZaColors.current.border2
                                             )
                                 } else
-                                    Color.Transparent
-                                ,
+                                    Color.Transparent,
                             shape = RoundedCornerShape(8.dp)
                         )
                         .background(
                             if (enabled == true) Color.Transparent else LocalZaColors.current.inputDisabled,
                             shape = RoundedCornerShape(8.dp)
                         )
-                        .padding(start = 12.dp, top = 0.dp, end = 6.dp, bottom = 0.dp),
+                        .padding(start = 12.dp, top = 0.dp, end = 12.dp, bottom = 0.dp),
                     verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     Box(
                         Modifier
@@ -138,19 +139,17 @@ fun ZaInput(
                     if (isFocused) {
                         if (!value.text.isEmpty()) {
                             ZaIconButton(
-                                modifier = Modifier.padding(end = 3.dp),
                                 onClick = { onValueChange(TextFieldValue("")) },
                                 icon = "\uE951",
                                 size = 16
                             )
                         }
                     } else {
-                        if (!value.text.isEmpty()) {
+                        if (!value.text.isEmpty() && isChecked == true) {
                             Box(
                                 modifier = Modifier
                                     .height(22.dp)
-                                    .width(22.dp)
-                                    .padding(end = 6.dp),
+                                    .width(22.dp),
                                 contentAlignment = Alignment.Center
                             ) {
                                 ZaIcon(
@@ -164,7 +163,7 @@ fun ZaInput(
 
                     if (isPassword == true) {
                         ZaIconButton(
-                            onClick = { isShowPassword = !isShowPassword},
+                            onClick = { isShowPassword = !isShowPassword },
                             icon = if (isShowPassword) "\uE9A6" else "\uEA52",
                             size = 24
                         )
@@ -203,72 +202,8 @@ fun ZaInput(
     }
 }
 
-@Preview(showBackground = true)
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ZaInput() {
-    KotlinApplicationTheme {
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(4.dp)
-        ) {
-            Text("Password", color = LocalZaColors.current.text1, style = LocalZaTypography.current.textSmall)
-
-            BasicTextField(
-                value = "Filled",
-                onValueChange = {},
-                textStyle = LocalZaTypography.current.textLarge.copy(color = LocalZaColors.current.text1),
-                modifier = Modifier
-                    .fillMaxWidth(),
-                singleLine = true,
-                enabled = false,
-                visualTransformation = PasswordVisualTransformation(),
-                decorationBox = { innerTextField ->
-                    Row(
-                        modifier = Modifier
-                            .height(48.dp)
-                            .border(
-                                width = 1.dp,
-                                color = LocalZaColors.current.text3,
-                                shape = RoundedCornerShape(8.dp)
-                            )
-                            .background(Color.Transparent, RoundedCornerShape(8.dp))
-                            .padding(start = 12.dp, top = 0.dp, end = 0.dp, bottom = 0.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Box(
-                            Modifier
-                                .weight(1f),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            innerTextField()
-                        }
-                    }
-                },
-            )
-
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(4.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                ZaIcon(
-                    "\uE9AC",
-                    color = LocalZaColors.current.text2,
-                    size = 16.sp
-                )
-
-                Text(
-                    "Helper text",
-                    color = LocalZaColors.current.text2,
-                    style = LocalZaTypography.current.textXSmall
-                )
-            }
-        }
-    }
-}
-
-@Composable
-fun PasswordStrengthIndicator(
+private fun PasswordStrengthIndicator(
     strength: PasswordStrength,
     defaultColor: Color,
     modifier: Modifier = Modifier,
@@ -301,7 +236,7 @@ fun PasswordStrengthIndicator(
     }
 }
 
-fun strengthColor(strength: PasswordStrength, defaultColor: Color): Color {
+private fun strengthColor(strength: PasswordStrength, defaultColor: Color): Color {
     return when (strength) {
         PasswordStrength.WEAK -> red60
         PasswordStrength.MEDIUM -> yellow60
@@ -310,13 +245,13 @@ fun strengthColor(strength: PasswordStrength, defaultColor: Color): Color {
     }
 }
 
-fun calculatePasswordStrength(password: String): PasswordStrength {
+private fun calculatePasswordStrength(password: String): PasswordStrength {
     if (password.isEmpty()) return PasswordStrength.EMPTY
 
     var score = 0
     if (password.length >= 6) score++
     if (password.any { it.isDigit() }) score++
-    if (password.any { it.isUpperCase() }) score++
+    if (password.any { Regex("\"[!@#$%^&*]\"").containsMatchIn(it.toString()) }) score++
 
     return when (score) {
         0, 1 -> PasswordStrength.WEAK
