@@ -43,6 +43,9 @@ data class ZaColorSchemes(
     val link2: Color,
     val linkPressed: Color,
     val selected: Color,
+    val selectedDisable: Color,
+    val unSelectedDisable: Color,
+    val unSelectedDisableBackground: Color,
     val supportError: Color,
     val supportSuccess: Color,
     val supportWarning: Color,
@@ -53,7 +56,11 @@ data class ZaColorSchemes(
     val border2: Color,
     val borderSelected: Color,
     val borderDanger: Color,
-    val inputDisabled: Color
+    val inputDisabled: Color,
+    val fabBackground: Color,
+    val fabBorder: Color,
+    val fabIcon: Color,
+    val sliderInactive: Color,
 )
 
 data class ZaTypographySchemes(
@@ -62,6 +69,7 @@ data class ZaTypographySchemes(
     val textXLargeM: TextStyle,
     val textNormalM: TextStyle,
     val textSmall: TextStyle,
+    val textSmallM: TextStyle,
     val textXSmall: TextStyle,
     val textXSmallM: TextStyle,
     val textXXXSmallM: TextStyle,
@@ -99,6 +107,9 @@ private val DarkColorSchemes = ZaColorSchemes(
     link2 = blue50,
     linkPressed = blue70,
     selected = blue60,
+    selectedDisable = blue80,
+    unSelectedDisable = Color(0xFF3D3D3D),
+    unSelectedDisableBackground = white60,
     /* Support */
     supportError = red60,
     supportSuccess = green60,
@@ -113,6 +124,12 @@ private val DarkColorSchemes = ZaColorSchemes(
     borderDanger = red60,
     /** Input */
     inputDisabled = white10,
+    /** Float Button */
+    fabBackground = white100,
+    fabBorder = black20,
+    fabIcon = black100,
+    /** Slider */
+    sliderInactive = Color(0xFF575757)
 )
 
 private val LightColorSchemes = ZaColorSchemes(
@@ -146,6 +163,9 @@ private val LightColorSchemes = ZaColorSchemes(
     link2 = blue50,
     linkPressed = blue70,
     selected = blue60,
+    selectedDisable = blue40,
+    unSelectedDisable = Color(0xFFD3D6DA),
+    unSelectedDisableBackground = white80,
     /* Support */
     supportError = red60,
     supportSuccess = green60,
@@ -160,6 +180,12 @@ private val LightColorSchemes = ZaColorSchemes(
     borderDanger = red60,
     /** Input */
     inputDisabled = black10,
+    /** Float Button */
+    fabBackground = black100,
+    fabBorder = white20,
+    fabIcon = white100,
+    /** Slider */
+    sliderInactive = Color(0xFFC2C7CB)
 )
 
 private val AppTypography = ZaTypographySchemes(
@@ -191,6 +217,12 @@ private val AppTypography = ZaTypographySchemes(
         fontFamily = AppFont,
         fontSize = 14.sp,
         fontWeight = FontWeight.Normal,
+        lineHeight = 18.sp
+    ),
+    textSmallM = TextStyle(
+        fontFamily = AppFont,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Medium,
         lineHeight = 18.sp
     ),
     textXSmall = TextStyle(
