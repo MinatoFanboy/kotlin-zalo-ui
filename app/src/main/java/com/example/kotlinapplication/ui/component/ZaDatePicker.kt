@@ -53,6 +53,8 @@ fun ZaDatePicker(
     enabled: Boolean? = true,
     selectorEffectEnabled: Boolean = true,
     yearsRange: IntRange = IntRange(1923, 2121),
+    modalTitle: String = "Chọn ngày",
+    content: (@Composable (onClick: () -> Unit) -> Unit)? = null
 ) {
     var visible by remember { mutableStateOf(false) }
 
@@ -80,75 +82,79 @@ fun ZaDatePicker(
         yearsRange.toList()
     }
 
-    Column(
-        modifier = modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(4.dp)
-    ) {
-        if (!label.isNullOrBlank()) {
-            Text(
-                label,
-                color = if (enabled == true) LocalZaColors.current.text1 else LocalZaColors.current.text3,
-                style = LocalZaTypography.current.textSmall
-            )
-        }
-
-        Row(
-            modifier = Modifier
-                .height(48.dp)
-                .border(
-                    width = 1.dp,
-                    color = LocalZaColors.current.border2,
-                    shape = RoundedCornerShape(8.dp)
-                )
-                .background(
-                    if (enabled == true) Color.Transparent else LocalZaColors.current.inputDisabled,
-                    shape = RoundedCornerShape(8.dp)
-                )
-                .clickable(
-                    onClick = { visible = true },
-                )
-                .padding(start = 12.dp, top = 0.dp, end = 12.dp, bottom = 0.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
+    if (content != null) {
+        content({ visible = true })
+    } else {
+        Column(
+            modifier = modifier.fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
-            Box(
-                Modifier
-                    .weight(1f),
-                contentAlignment = Alignment.CenterStart
-            ) {
+            if (!label.isNullOrBlank()) {
                 Text(
-                    value?.toDisplayString() ?: placeholder,
-                    color = if (value == null) LocalZaColors.current.text3 else LocalZaColors.current.text1,
-                    style = LocalZaTypography.current.textLarge
+                    label,
+                    color = if (enabled == true) LocalZaColors.current.text1 else LocalZaColors.current.text3,
+                    style = LocalZaTypography.current.textSmall
                 )
             }
 
-            Box(contentAlignment = Alignment.Center) {
-                ZaIcon(
-                    "\uE92C",
-                    size = 24.sp,
-                    color = LocalZaColors.current.text1,
-                )
-            }
-        }
-
-        if (!footerText.isNullOrBlank()) {
-            if (enabled == true) {
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                    verticalAlignment = Alignment.CenterVertically
+            Row(
+                modifier = Modifier
+                    .height(48.dp)
+                    .border(
+                        width = 1.dp,
+                        color = LocalZaColors.current.border2,
+                        shape = RoundedCornerShape(8.dp)
+                    )
+                    .background(
+                        if (enabled == true) Color.Transparent else LocalZaColors.current.inputDisabled,
+                        shape = RoundedCornerShape(8.dp)
+                    )
+                    .clickable(
+                        onClick = { visible = true },
+                    )
+                    .padding(start = 12.dp, top = 0.dp, end = 12.dp, bottom = 0.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                Box(
+                    Modifier
+                        .weight(1f),
+                    contentAlignment = Alignment.CenterStart
                 ) {
-                    ZaIcon(
-                        if (hasError) "\uEA7E" else "\uE9AC",
-                        color = if (hasError) red60 else LocalZaColors.current.text2,
-                        size = 16.sp
-                    )
-
                     Text(
-                        footerText,
-                        color = if (hasError) red60 else LocalZaColors.current.text2,
-                        style = LocalZaTypography.current.textXSmall
+                        value?.toDisplayString() ?: placeholder,
+                        color = if (value == null) LocalZaColors.current.text3 else LocalZaColors.current.text1,
+                        style = LocalZaTypography.current.textLarge
                     )
+                }
+
+                Box(contentAlignment = Alignment.Center) {
+                    ZaIcon(
+                        "\uE92C",
+                        size = 24.sp,
+                        color = LocalZaColors.current.text1,
+                    )
+                }
+            }
+
+            if (!footerText.isNullOrBlank()) {
+                if (enabled == true) {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        ZaIcon(
+                            if (hasError) "\uEA7E" else "\uE9AC",
+                            color = if (hasError) red60 else LocalZaColors.current.text2,
+                            size = 16.sp
+                        )
+
+                        Text(
+                            footerText,
+                            color = if (hasError) red60 else LocalZaColors.current.text2,
+                            style = LocalZaTypography.current.textXSmall
+                        )
+                    }
                 }
             }
         }
@@ -177,7 +183,7 @@ fun ZaDatePicker(
                         Spacer(modifier = Modifier.width(24.dp))
 
                         Text(
-                            text = "Chọn ngày",
+                            text = modalTitle,
                             color = LocalZaColors.current.text1,
                             modifier = Modifier.weight(1f),
                             style = LocalZaTypography.current.textXLargeM,

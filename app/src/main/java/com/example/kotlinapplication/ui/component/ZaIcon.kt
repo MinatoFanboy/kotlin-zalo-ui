@@ -2,6 +2,7 @@ package com.example.kotlinapplication.ui.component
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -18,7 +19,8 @@ val FontIcon = FontFamily(
 fun ZaIcon(
     name: String,
     color: Color = Color.Unspecified,
-    size: TextUnit = 24.sp
+    size: TextUnit = 24.sp,
+    modifier: Modifier = Modifier
 ) {
     Text(
         text = name,
@@ -26,6 +28,7 @@ fun ZaIcon(
         fontWeight = FontWeight.Normal,
         fontSize = size,
         lineHeight = size,
-        color = color
+        color = color,
+        modifier = modifier
     )
 }

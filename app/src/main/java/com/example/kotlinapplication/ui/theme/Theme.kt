@@ -28,6 +28,11 @@ data class ZaColorSchemes(
     val uiBackgroundSelected: Color,
     val uiBackgroundTransparent: Color,
     val primary: Color,
+    val secondary: Color,
+    val secondaryHighlightPressed: Color,
+    val secondaryDangerPressed: Color,
+    val secondaryNeutralPressed: Color,
+    val primarySecondaryText: Color,
     val selectionLabel: Color,
     val text1: Color,
     val text2: Color,
@@ -38,7 +43,13 @@ data class ZaColorSchemes(
     val icon3: Color,
     val icon4: Color,
     val danger: Color,
+    val dangerSecondary: Color,
+    val dangerSecondaryText: Color,
+    val tertiaryHighlightText: Color,
+    val tertiaryDangerText: Color,
     val dangerPressed: Color,
+    val tertiaryPressed: Color,
+    val tertiaryDangerPressed: Color,
     val link1: Color,
     val link2: Color,
     val linkPressed: Color,
@@ -57,10 +68,10 @@ data class ZaColorSchemes(
     val borderSelected: Color,
     val borderDanger: Color,
     val inputDisabled: Color,
-    val fabBackground: Color,
-    val fabBorder: Color,
-    val fabIcon: Color,
     val sliderInactive: Color,
+    val fabBackground: Color,
+    val fabIcon: Color,
+    val fabBorder: Color
 )
 
 data class ZaTypographySchemes(
@@ -89,6 +100,11 @@ private val DarkColorSchemes = ZaColorSchemes(
     uiBackgroundSelected = neutralGray90,
     uiBackgroundTransparent = black0,
     primary = blue60,
+    primarySecondaryText = blue40,
+    secondary = blue90,
+    secondaryHighlightPressed = blue20,
+    secondaryDangerPressed = red20,
+    secondaryNeutralPressed = neutralGray90,
     /* Text */
     selectionLabel = blue40,
     text1 = neutralGray10,
@@ -102,7 +118,13 @@ private val DarkColorSchemes = ZaColorSchemes(
     icon4 = white100,
     /* Interactive */
     danger = red60,
-    dangerPressed = red50,
+    dangerSecondary = red20,
+    dangerSecondaryText = red60,
+    tertiaryHighlightText = blue50,
+    tertiaryDangerText = red50,
+    dangerPressed = red70,
+    tertiaryPressed = blue30,
+    tertiaryDangerPressed = red30,
     link1 = blue60,
     link2 = blue50,
     linkPressed = blue70,
@@ -129,7 +151,7 @@ private val DarkColorSchemes = ZaColorSchemes(
     fabBorder = black20,
     fabIcon = black100,
     /** Slider */
-    sliderInactive = Color(0xFF575757)
+    sliderInactive = Color(0xFF575757),
 )
 
 private val LightColorSchemes = ZaColorSchemes(
@@ -145,6 +167,11 @@ private val LightColorSchemes = ZaColorSchemes(
     uiBackgroundSelected = neutralGray10,
     uiBackgroundTransparent = white0,
     primary = blue60,
+    secondary = blue20,
+    primarySecondaryText = blue60,
+    secondaryHighlightPressed = blue30,
+    secondaryDangerPressed = red30,
+    secondaryNeutralPressed = neutralGray30,
     /* Text */
     selectionLabel = blue70,
     text1 = neutralGray100,
@@ -158,7 +185,13 @@ private val LightColorSchemes = ZaColorSchemes(
     icon4 = white100,
     /* Interactive */
     danger = red60,
+    dangerSecondary = red90,
+    dangerSecondaryText = red40,
+    tertiaryHighlightText = blue60,
+    tertiaryDangerText = red60,
     dangerPressed = red70,
+    tertiaryPressed = blue10,
+    tertiaryDangerPressed = red10,
     link1 = blue60,
     link2 = blue50,
     linkPressed = blue70,
@@ -185,7 +218,7 @@ private val LightColorSchemes = ZaColorSchemes(
     fabBorder = white20,
     fabIcon = white100,
     /** Slider */
-    sliderInactive = Color(0xFFC2C7CB)
+    sliderInactive = Color(0xFFC2C7CB),
 )
 
 private val AppTypography = ZaTypographySchemes(

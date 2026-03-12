@@ -13,11 +13,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.kotlinapplication.ui.component.ZaIcon
 import com.example.kotlinapplication.ui.theme.LocalZaColors
 import com.example.kotlinapplication.ui.theme.LocalZaTypography
 import com.example.kotlinapplication.ui.theme.black20
+import com.example.kotlinapplication.ui.theme.neutralGray100
 import com.example.kotlinapplication.ui.theme.white100
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
@@ -25,13 +27,14 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 fun ZaTopBar(
     title: String,
     onBackClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    isDarkTheme: Boolean = false
 ) {
     val systemUiController = rememberSystemUiController()
 
     SideEffect {
         systemUiController.setSystemBarsColor(
-            color = white100
+            color = if (isDarkTheme) neutralGray100 else white100
         )
     }
 
@@ -61,7 +64,7 @@ fun ZaTopBar(
                     .width(82.dp)
                     .clip(RoundedCornerShape(16.dp))
                     .border(
-                        width = 0.5.dp,
+                        width = Dp.Hairline,
                         color = Color(0x80979797),
                         shape = RoundedCornerShape(16.dp)
                     ),
@@ -74,7 +77,7 @@ fun ZaTopBar(
 
                 Box(modifier = Modifier
                     .height(19.dp)
-                    .width(0.5.dp)
+                    .width(Dp.Hairline)
                     .background(black20)
                 )
 

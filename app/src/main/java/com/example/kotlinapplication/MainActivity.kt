@@ -7,15 +7,19 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.material3.FabPosition
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.kotlinapplication.navigation.NavGraph
 import com.example.kotlinapplication.navigation.ZaTopBar
-import com.example.kotlinapplication.navigation.routeToTitle
+import com.example.kotlinapplication.ui.component.ThemeToggleFAB
 import com.example.kotlinapplication.ui.theme.KotlinApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,10 +34,12 @@ class MainActivity : ComponentActivity() {
             val destination = navBackStackEntry?.destination
 
             val currentScreen = remember(destination) {
-                routeToTitle(destination)
+                ""
             }
 
-            KotlinApplicationTheme {
+            var isDarkTheme by rememberSaveable { mutableStateOf(false) }
+
+            KotlinApplicationTheme(isDarkTheme) {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     topBar = {
@@ -42,9 +48,17 @@ class MainActivity : ComponentActivity() {
                             onBackClick = {
                                 navHostController.popBackStack()
                             },
-                            modifier = Modifier.statusBarsPadding()
+                            modifier = Modifier.statusBarsPadding(),
+                            isDarkTheme = isDarkTheme
                         )
-                    }
+                    },
+                    floatingActionButton = {
+                        ThemeToggleFAB(
+                            isDarkTheme = isDarkTheme,
+                            onToggle = { isDarkTheme = !isDarkTheme }
+                        )
+                    },
+                    floatingActionButtonPosition = FabPosition.Start
                 ) { innerPadding ->
                     NavGraph(navHostController = navHostController, modifier = Modifier.padding(innerPadding))
                 }

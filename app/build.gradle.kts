@@ -5,6 +5,8 @@ plugins {
 
     alias(libs.plugins.hilt)
     id("kotlin-kapt")
+
+    kotlin("plugin.serialization") version "2.0.21"
 }
 
 android {
@@ -69,7 +71,9 @@ dependencies {
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.hilt)
     kapt(libs.hiltCompiler)
-    implementation(libs.androidxHiltNavigationCompose)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit)
     implementation(libs.gson)
     implementation(libs.coroutines)

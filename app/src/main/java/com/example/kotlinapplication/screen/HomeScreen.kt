@@ -16,9 +16,11 @@ import com.example.kotlinapplication.ui.component.ExpandableListItem
 import com.example.kotlinapplication.ui.component.ZaCard
 import com.example.kotlinapplication.ui.component.ZaIcon
 import com.example.kotlinapplication.model.ExpandableUiChild
+import com.example.kotlinapplication.navigation.Routes
 import com.example.kotlinapplication.ui.theme.LocalZaColors
 import com.example.kotlinapplication.ui.theme.LocalZaTypography
 import com.example.kotlinapplication.ui.theme.blue60
+import com.example.kotlinapplication.ui.theme.skyBlue60
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -26,7 +28,7 @@ fun HomeScreen(navHostController: NavHostController) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(LocalZaColors.current.pageBackground3)
+            .background(LocalZaColors.current.pageBackground1)
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(24.dp),
         contentPadding = PaddingValues(bottom = 16.dp)
@@ -45,10 +47,31 @@ fun HomeScreen(navHostController: NavHostController) {
                         },
                         children = listOf(
                             ExpandableUiChild("Forms Input", onClick = {
-                                navHostController.navigate("formsInput")
+                                navHostController.navigate(Routes.FormsInputScreen)
                             }),
                             ExpandableUiChild("Selection", onClick = {
-                                navHostController.navigate("selection")
+                                navHostController.navigate(Routes.SelectionScreen)
+                            }),
+                            ExpandableUiChild("Time Picker", onClick = {
+                                navHostController.navigate(Routes.TimePickerScreen)
+                            }),
+                            ExpandableUiChild("List Item", onClick = {
+                                navHostController.navigate(Routes.ListItemScreen)
+                            })
+                        )
+                    )
+
+                    ExpandableListItem(
+                        name = "Typography",
+                        trailing = {
+                            ZaIcon("\uE978", color = skyBlue60, size = 24.sp)
+                        },
+                        children = listOf(
+                            ExpandableUiChild("Token Size", onClick = {
+                                navHostController.navigate(Routes.TokenSizeScreen)
+                            }),
+                            ExpandableUiChild("Text Style", onClick = {
+                                navHostController.navigate(Routes.TextStyleScreen)
                             })
                         )
                     )

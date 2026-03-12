@@ -26,7 +26,6 @@ import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.kotlinapplication.ui.theme.LocalZaColors
-import com.example.kotlinapplication.ui.theme.neutralGray10
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
@@ -99,14 +98,14 @@ fun ZaDatePickerInfiniteWheelView(
                 .align(Alignment.Center)
                 .border(
                     width = 0.dp,
-                    color = neutralGray10,
+                    color = LocalZaColors.current.pageBackground3,
                     shape = RoundedCornerShape(8.dp)
                 )
                 .clip(RoundedCornerShape(8.dp))
         ) {
             Box(modifier = Modifier
                 .height(54.dp)
-                .background(neutralGray10)
+                .background(LocalZaColors.current.pageBackground3)
                 .fillMaxWidth())
         }
 
