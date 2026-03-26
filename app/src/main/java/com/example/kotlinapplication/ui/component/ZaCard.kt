@@ -29,6 +29,7 @@ fun ZaCard(
     subName: String? = null,
     highlightName: String? = null,
     description: Array<String>? = arrayOf(),
+    space: Int = 16,
     trailing: @Composable () -> Unit,
     nameStyle: TextStyle? = null,
 ) {
@@ -43,7 +44,7 @@ fun ZaCard(
             )
             .background(LocalZaColors.current.pageBackground2)
             .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(space.dp)
     ) {
         if (!name.isNullOrBlank() || !subName.isNullOrBlank()) {
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {

@@ -20,6 +20,7 @@ import com.example.kotlinapplication.navigation.Routes
 import com.example.kotlinapplication.ui.theme.LocalZaColors
 import com.example.kotlinapplication.ui.theme.LocalZaTypography
 import com.example.kotlinapplication.ui.theme.blue60
+import com.example.kotlinapplication.ui.theme.purple60
 import com.example.kotlinapplication.ui.theme.skyBlue60
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -72,6 +73,24 @@ fun HomeScreen(navHostController: NavHostController) {
                             }),
                             ExpandableUiChild("Text Style", onClick = {
                                 navHostController.navigate(Routes.TextStyleScreen)
+                            })
+                        )
+                    )
+
+                    ExpandableListItem(
+                        name = "Colors",
+                        trailing = {
+                            ZaIcon("\uEA40", color = purple60, size = 24.sp)
+                        },
+                        children = listOf(
+                            ExpandableUiChild("Global Token Color", onClick = {
+                                navHostController.navigate(Routes.GlobalTokenColorScreen)
+                            }),
+                            ExpandableUiChild("Gradients", onClick = {
+                                navHostController.navigate(Routes.GradientScreen)
+                            }),
+                            ExpandableUiChild("Alias Tokens Color", onClick = {
+                                navHostController.navigate(Routes.AliasTokensScreen)
                             })
                         )
                     )

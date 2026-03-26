@@ -22,15 +22,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.example.kotlinapplication.model.ExpandableUiChild
-import com.example.kotlinapplication.ui.theme.KotlinApplicationTheme
 import com.example.kotlinapplication.ui.theme.LocalZaColors
 import com.example.kotlinapplication.ui.theme.LocalZaTypography
-import com.example.kotlinapplication.ui.theme.blue60
 
 @Composable
 fun ExpandableListItem(
@@ -109,23 +105,5 @@ fun ExpandableListItem(
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ExpandableListItemPreview() {
-    KotlinApplicationTheme {
-        ExpandableListItem(
-            name = "Input Field",
-            trailing = {
-                ZaIcon("\uE988", color = blue60, size = 24.sp)
-            },
-            children = listOf(
-                ExpandableUiChild("Forms Input", onClick = {}),
-                ExpandableUiChild("Selection", onClick = {}),
-                ExpandableUiChild("Api", onClick = {}),
-            )
-        )
     }
 }

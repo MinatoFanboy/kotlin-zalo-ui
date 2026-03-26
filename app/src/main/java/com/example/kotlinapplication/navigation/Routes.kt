@@ -5,10 +5,28 @@ import kotlinx.serialization.Serializable
 @Serializable
 sealed class Routes {
     @Serializable
-    object HomeScreen
+    object AliasTokensScreen
+
+    @Serializable
+    object ApiScreen
 
     @Serializable
     object FormsInputScreen
+
+    @Serializable
+    object GlobalTokenColorScreen
+
+    @Serializable
+    object GradientScreen
+
+    @Serializable
+    object HomeScreen
+
+    @Serializable
+    object ListItemScreen
+
+    @Serializable
+    object TextStyleScreen
 
     @Serializable
     object SelectionScreen
@@ -17,14 +35,5 @@ sealed class Routes {
     object TimePickerScreen
 
     @Serializable
-    object ListItemScreen
-
-    @Serializable
     object TokenSizeScreen
-
-    @Serializable
-    object TextStyleScreen
-
-    @Serializable
-    object ApiScreen
 }

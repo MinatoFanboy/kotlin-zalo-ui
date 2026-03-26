@@ -5,8 +5,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.kotlinapplication.screen.AliasTokensScreen
 import com.example.kotlinapplication.screen.ApiScreen
 import com.example.kotlinapplication.screen.FormsInputScreen
+import com.example.kotlinapplication.screen.GlobalTokenColorScreen
+import com.example.kotlinapplication.screen.GradientScreen
 import com.example.kotlinapplication.screen.HomeScreen
 import com.example.kotlinapplication.screen.ListItemScreen
 import com.example.kotlinapplication.screen.SelectionScreen
@@ -17,29 +20,38 @@ import com.example.kotlinapplication.screen.TokenSizeScreen
 @Composable
 fun NavGraph(navHostController: NavHostController, modifier: Modifier = Modifier) {
     NavHost(navController = navHostController, startDestination = Routes.HomeScreen, modifier = modifier) {
-        composable<Routes.HomeScreen> {
-            HomeScreen(navHostController = navHostController)
+        composable<Routes.AliasTokensScreen> {
+            AliasTokensScreen()
+        }
+        composable<Routes.ApiScreen> {
+            ApiScreen()
         }
         composable<Routes.FormsInputScreen> {
             FormsInputScreen()
         }
-        composable<Routes.SelectionScreen> {
-            SelectionScreen()
+        composable<Routes.GlobalTokenColorScreen> {
+            GlobalTokenColorScreen()
         }
-        composable<Routes.TimePickerScreen> {
-            TimePickerScreen()
+        composable<Routes.GradientScreen> {
+            GradientScreen()
+        }
+        composable<Routes.HomeScreen> {
+            HomeScreen(navHostController = navHostController)
         }
         composable<Routes.ListItemScreen> {
             ListItemScreen()
         }
-        composable<Routes.TokenSizeScreen> {
-            TokenSizeScreen()
+        composable<Routes.SelectionScreen> {
+            SelectionScreen()
         }
         composable<Routes.TextStyleScreen> {
             TextStyleScreen()
         }
-        composable<Routes.ApiScreen> {
-            ApiScreen()
+        composable<Routes.TimePickerScreen> {
+            TimePickerScreen()
+        }
+        composable<Routes.TokenSizeScreen> {
+            TokenSizeScreen()
         }
     }
 }

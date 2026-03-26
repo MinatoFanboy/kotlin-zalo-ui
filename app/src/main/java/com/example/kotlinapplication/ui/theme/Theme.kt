@@ -83,6 +83,7 @@ data class ZaTypographySchemes(
     val textSmallM: TextStyle,
     val textXSmall: TextStyle,
     val textXSmallM: TextStyle,
+    val textXXSmall: TextStyle,
     val textXXXSmallM: TextStyle,
     val titleNormal: TextStyle,
     val titleSmall: TextStyle,
@@ -268,6 +269,12 @@ private val AppTypography = ZaTypographySchemes(
         fontFamily = AppFont,
         fontSize = 13.sp,
         fontWeight = FontWeight.Medium,
+        lineHeight = 18.sp
+    ),
+    textXXSmall = TextStyle(
+        fontFamily = AppFont,
+        fontSize = 12.sp,
+        fontWeight = FontWeight.Normal,
         lineHeight = 18.sp
     ),
     textXXXSmallM = TextStyle(
