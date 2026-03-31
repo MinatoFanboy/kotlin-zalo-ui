@@ -26,10 +26,13 @@ sealed class Routes {
     object ListItemScreen
 
     @Serializable
-    object TextStyleScreen
+    object SelectionScreen
 
     @Serializable
-    object SelectionScreen
+    object SheetAndModalScreen
+
+    @Serializable
+    object TextStyleScreen
 
     @Serializable
     object TimePickerScreen

@@ -116,7 +116,7 @@ fun ZaDatePickerInfiniteWheelView(
             state = state,
             userScrollEnabled = userScrollEnabled,
         ) {
-            items(itemCount * 2000) {
+            items(if (isEndless) itemCount * 2000 else (itemCount + 4)) {
                 val scaleDegree = calculateIndexRotation(focusedIndex.value + 1, it)
                 val opacityDegree = calculateIndexOpacity(focusedIndex.value + 1, it)
 

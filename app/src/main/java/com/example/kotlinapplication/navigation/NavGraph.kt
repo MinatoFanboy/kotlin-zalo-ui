@@ -13,6 +13,7 @@ import com.example.kotlinapplication.screen.GradientScreen
 import com.example.kotlinapplication.screen.HomeScreen
 import com.example.kotlinapplication.screen.ListItemScreen
 import com.example.kotlinapplication.screen.SelectionScreen
+import com.example.kotlinapplication.screen.SheetAndModalScreen
 import com.example.kotlinapplication.screen.TextStyleScreen
 import com.example.kotlinapplication.screen.TimePickerScreen
 import com.example.kotlinapplication.screen.TokenSizeScreen
@@ -43,6 +44,9 @@ fun NavGraph(navHostController: NavHostController, modifier: Modifier = Modifier
         }
         composable<Routes.SelectionScreen> {
             SelectionScreen()
+        }
+        composable<Routes.SheetAndModalScreen> {
+            SheetAndModalScreen()
         }
         composable<Routes.TextStyleScreen> {
             TextStyleScreen()

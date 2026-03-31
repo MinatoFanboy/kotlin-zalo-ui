@@ -94,6 +94,16 @@ fun HomeScreen(navHostController: NavHostController) {
                             })
                         )
                     )
+
+                    ExpandableListItem(
+                        name = "Sheet & Modal",
+                        trailing = {
+                            ZaIcon("\uEA40", color = purple60, size = 24.sp)
+                        },
+                        onClick = {
+                            navHostController.navigate(Routes.SheetAndModalScreen)
+                        }
+                    )
                 },
                 nameStyle = LocalZaTypography.current.headingXLarge
             )

@@ -33,7 +33,8 @@ fun ExpandableListItem(
     modifier: Modifier = Modifier,
     name: String,
     trailing: @Composable () -> Unit,
-    children: List<ExpandableUiChild>
+    children: List<ExpandableUiChild> = emptyList(),
+    onClick: (() -> Unit)? = null
 ) {
     var expanded by rememberSaveable { mutableStateOf(false) }
 
@@ -52,7 +53,11 @@ fun ExpandableListItem(
                 )
                 .background(LocalZaColors.current.pageBackground3)
                 .clickable {
-                    expanded = !expanded
+                    if (onClick != null) {
+                        onClick()
+                    } else {
+                        expanded = !expanded
+                    }
                 }
                 .padding(12.dp),
             verticalAlignment = Alignment.CenterVertically

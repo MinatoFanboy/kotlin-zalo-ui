@@ -14,17 +14,32 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.kotlinapplication.model.DateItem
+import com.example.kotlinapplication.model.PickerItem
 import com.example.kotlinapplication.ui.component.ZaButton
 import com.example.kotlinapplication.ui.component.ZaButtonLevel
 import com.example.kotlinapplication.ui.component.ZaCard
 import com.example.kotlinapplication.ui.component.ZaDatePicker
+import com.example.kotlinapplication.ui.component.ZaPicker
 import com.example.kotlinapplication.ui.theme.LocalZaColors
 import com.example.kotlinapplication.util.DateUtils
 
 @Composable
 fun TimePickerScreen() {
-    var valueDate by remember { mutableStateOf(DateItem.from(DateUtils.getCurrentTime())) }
+    var valuePicker by remember { mutableStateOf("value_1") }
     var valueDate2 by remember { mutableStateOf(DateItem.from(DateUtils.getCurrentTime())) }
+
+    val items = listOf(
+        PickerItem("value_1", "Value 1"),
+        PickerItem("value_2", "Value 2"),
+        PickerItem("value_3", "Value 3"),
+        PickerItem("value_4", "Value 4"),
+        PickerItem("value_5", "Value 5"),
+        PickerItem("value_6", "Value 6"),
+        PickerItem("value_7", "Value 7"),
+        PickerItem("value_8", "Value 8"),
+        PickerItem("value_9", "Value 9"),
+        PickerItem("value_10", "Value 10")
+    )
 
     LazyColumn(
         modifier = Modifier
@@ -38,12 +53,11 @@ fun TimePickerScreen() {
             ZaCard(
                 name = "Type",
                 trailing = {
-                    ZaDatePicker(
+                    ZaPicker(
                         modalTitle = "Single column selector",
-                        value = valueDate,
-                        onValueChange = { day, month, year, date ->
-                            valueDate = DateItem(year, month, day)
-                        },
+                        array = items,
+                        value = valuePicker,
+                        onValueChange = { valuePicker = it },
                         content = { onClick ->
                             ZaButton(label = "Single Column", onClick = onClick, fullWidth = true, level = ZaButtonLevel.Secondary)
                         }
