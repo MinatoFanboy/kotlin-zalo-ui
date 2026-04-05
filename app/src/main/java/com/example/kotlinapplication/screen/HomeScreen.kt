@@ -20,7 +20,9 @@ import com.example.kotlinapplication.navigation.Routes
 import com.example.kotlinapplication.ui.theme.LocalZaColors
 import com.example.kotlinapplication.ui.theme.LocalZaTypography
 import com.example.kotlinapplication.ui.theme.blue60
+import com.example.kotlinapplication.ui.theme.green60
 import com.example.kotlinapplication.ui.theme.purple60
+import com.example.kotlinapplication.ui.theme.red60
 import com.example.kotlinapplication.ui.theme.skyBlue60
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -98,10 +100,20 @@ fun HomeScreen(navHostController: NavHostController) {
                     ExpandableListItem(
                         name = "Sheet & Modal",
                         trailing = {
-                            ZaIcon("\uEA40", color = purple60, size = 24.sp)
+                            ZaIcon("\uEA58", color = green60, size = 24.sp)
                         },
                         onClick = {
                             navHostController.navigate(Routes.SheetAndModalScreen)
+                        }
+                    )
+
+                    ExpandableListItem(
+                        name = "Buttons",
+                        trailing = {
+                            ZaIcon("\uE936", color = red60, size = 24.sp)
+                        },
+                        onClick = {
+                            navHostController.navigate(Routes.ButtonScreen)
                         }
                     )
                 },

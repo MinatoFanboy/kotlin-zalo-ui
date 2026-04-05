@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.kotlinapplication.screen.AliasTokensScreen
 import com.example.kotlinapplication.screen.ApiScreen
+import com.example.kotlinapplication.screen.ButtonScreen
 import com.example.kotlinapplication.screen.FormsInputScreen
 import com.example.kotlinapplication.screen.GlobalTokenColorScreen
 import com.example.kotlinapplication.screen.GradientScreen
@@ -26,6 +27,9 @@ fun NavGraph(navHostController: NavHostController, modifier: Modifier = Modifier
         }
         composable<Routes.ApiScreen> {
             ApiScreen()
+        }
+        composable<Routes.ButtonScreen> {
+            ButtonScreen()
         }
         composable<Routes.FormsInputScreen> {
             FormsInputScreen()

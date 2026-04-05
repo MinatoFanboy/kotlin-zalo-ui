@@ -1,13 +1,14 @@
 package com.example.kotlinapplication.ui.component
 
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
@@ -19,8 +20,10 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.kotlinapplication.ui.theme.LocalZaColors
+import com.example.kotlinapplication.R
 import com.example.kotlinapplication.ui.theme.LocalZaTypography
 import kotlinx.coroutines.launch
 
@@ -64,58 +67,55 @@ fun ZaCustomSheet(
             shape = RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp),
             containerColor = LocalZaColors.current.pageBackground2,
             content = {
-                Column(modifier = Modifier.fillMaxWidth()) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 16.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            title,
-                            color = LocalZaColors.current.text2,
-                            style = LocalZaTypography.current.textSmall
-                        )
-                    }
-
-                    items.forEach { item ->
-                        HorizontalDivider(thickness = 1.dp, color = LocalZaColors.current.divider1)
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.TopEnd) {
+                        ZaIcon("\uE9AD", color = LocalZaColors.current.text2)
 
                         Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable(
-                                    onClick = {
-                                        item.onClick()
-                                        scope.launch {
-                                            sheetState.hide()
-                                            visible = false
-                                        }
-                                    },
-                                )
-                                .padding(vertical = 16.dp),
+                            modifier = Modifier.fillMaxWidth(),
                             contentAlignment = Alignment.Center
                         ) {
-                            Text(
-                                item.label,
-                                color = if (item.active) LocalZaColors.current.text1 else LocalZaColors.current.danger,
-                                style = LocalZaTypography.current.textLarge
+                            Image(
+                                painter = painterResource(id = R.drawable.starbucks),
+                                contentDescription = "My Image"
                             )
                         }
                     }
 
-                    HorizontalDivider(thickness = 4.dp, color = LocalZaColors.current.divider1)
+                    Text(
+                        "Cho phép Starbucks Coffee xác định vị trí của bạn",
+                        color = LocalZaColors.current.text1,
+                        style = LocalZaTypography.current.textLargeM
+                    )
 
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 16.dp),
-                        contentAlignment = Alignment.Center
+                    Text(
+                        "Starbucks Coffee sẽ sử dụng vị trí của bạn để hỗ trợ giao nhận hàng, tìm kiếm dịch vụ, bạn bè quanh bạn, hoặc các dịch vụ liên quan đến địa điểm khác.",
+                        color = LocalZaColors.current.text1,
+                        style = LocalZaTypography.current.textNormal
+                    )
+
+                    Row(
+                        modifier = Modifier.padding(top = 16.dp),
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
-                        Text(
-                            "Cancel",
-                            color = LocalZaColors.current.text1,
-                            style = LocalZaTypography.current.textSmall
+                        ZaButton(
+                            modifier = Modifier.weight(1f),
+                            label = "Để sau",
+                            onClick = {},
+                            fullWidth = true,
+                            level = ZaButtonLevel.Secondary
+                        )
+
+                        ZaButton(
+                            modifier = Modifier.weight(1f),
+                            label = "Cho phép",
+                            onClick = {},
+                            fullWidth = true
                         )
                     }
                 }

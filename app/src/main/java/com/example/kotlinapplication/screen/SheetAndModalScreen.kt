@@ -10,9 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.kotlinapplication.ui.component.SheetItem
-import com.example.kotlinapplication.ui.component.ZaButton
-import com.example.kotlinapplication.ui.component.ZaButtonLevel
 import com.example.kotlinapplication.ui.component.ZaCard
+import com.example.kotlinapplication.ui.component.ZaCustomSheet
+import com.example.kotlinapplication.ui.component.ZaDialog
+import com.example.kotlinapplication.ui.component.ZaPopup
 import com.example.kotlinapplication.ui.component.ZaSheet
 import com.example.kotlinapplication.ui.theme.LocalZaColors
 
@@ -39,12 +40,7 @@ fun SheetAndModalScreen() {
                 trailing = {
                     ZaSheet(items = sheetItems)
 
-                    ZaButton(
-                        label = "Custom Bottom Sheet",
-                        onClick = {},
-                        fullWidth = true,
-                        level = ZaButtonLevel.Secondary
-                    )
+                    ZaCustomSheet()
                 }
             )
         }
@@ -54,19 +50,9 @@ fun SheetAndModalScreen() {
                 name = "Dialog & Modal",
                 space = 24,
                 trailing = {
-                    ZaButton(
-                        label = "Info Dialog",
-                        onClick = {},
-                        fullWidth = true,
-                        level = ZaButtonLevel.Secondary
-                    )
+                    ZaDialog()
 
-                    ZaButton(
-                        label = "Popup",
-                        onClick = {},
-                        fullWidth = true,
-                        level = ZaButtonLevel.Secondary
-                    )
+                    ZaPopup()
                 }
             )
         }

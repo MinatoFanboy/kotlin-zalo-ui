@@ -11,6 +11,9 @@ sealed class Routes {
     object ApiScreen
 
     @Serializable
+    object ButtonScreen
+
+    @Serializable
     object FormsInputScreen
 
     @Serializable

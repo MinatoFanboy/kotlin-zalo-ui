@@ -77,7 +77,9 @@ data class ZaColorSchemes(
 data class ZaTypographySchemes(
     val headingXLarge: TextStyle,
     val textLarge: TextStyle,
+    val textLargeM: TextStyle,
     val textXLargeM: TextStyle,
+    val textNormal: TextStyle,
     val textNormalM: TextStyle,
     val textSmall: TextStyle,
     val textSmallM: TextStyle,
@@ -85,6 +87,7 @@ data class ZaTypographySchemes(
     val textXSmallM: TextStyle,
     val textXXSmall: TextStyle,
     val textXXXSmallM: TextStyle,
+    val titleLargeM: TextStyle,
     val titleNormal: TextStyle,
     val titleSmall: TextStyle,
 )
@@ -119,8 +122,8 @@ private val DarkColorSchemes = ZaColorSchemes(
     icon4 = white100,
     /* Interactive */
     danger = red60,
-    dangerSecondary = red20,
-    dangerSecondaryText = red60,
+    dangerSecondary = red90,
+    dangerSecondaryText = red40,
     tertiaryHighlightText = blue50,
     tertiaryDangerText = red50,
     dangerPressed = red70,
@@ -186,8 +189,8 @@ private val LightColorSchemes = ZaColorSchemes(
     icon4 = white100,
     /* Interactive */
     danger = red60,
-    dangerSecondary = red90,
-    dangerSecondaryText = red40,
+    dangerSecondary = red20,
+    dangerSecondaryText = red60,
     tertiaryHighlightText = blue60,
     tertiaryDangerText = red60,
     dangerPressed = red70,
@@ -235,11 +238,23 @@ private val AppTypography = ZaTypographySchemes(
         fontWeight = FontWeight.Normal,
         lineHeight = 22.sp
     ),
+    textLargeM = TextStyle(
+        fontFamily = AppFont,
+        fontSize = 16.sp,
+        fontWeight = FontWeight.Medium,
+        lineHeight = 22.sp
+    ),
     textXLargeM = TextStyle(
         fontFamily = AppFont,
         fontSize = 18.sp,
         fontWeight = FontWeight.Medium,
         lineHeight = 24.sp
+    ),
+    textNormal = TextStyle(
+        fontFamily = AppFont,
+        fontSize = 15.sp,
+        fontWeight = FontWeight.Normal,
+        lineHeight = 20.sp
     ),
     textNormalM = TextStyle(
         fontFamily = AppFont,
@@ -282,6 +297,12 @@ private val AppTypography = ZaTypographySchemes(
         fontSize = 11.sp,
         fontWeight = FontWeight.Medium,
         lineHeight = 16.sp
+    ),
+    titleLargeM = TextStyle(
+        fontFamily = AppFont,
+        fontSize = 20.sp,
+        fontWeight = FontWeight.Medium,
+        lineHeight = 26.sp
     ),
     titleNormal = TextStyle(
         fontFamily = AppFont,
