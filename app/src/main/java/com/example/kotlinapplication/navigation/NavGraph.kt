@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.kotlinapplication.screen.AliasTokensScreen
 import com.example.kotlinapplication.screen.ApiScreen
+import com.example.kotlinapplication.screen.AvatarScreen
 import com.example.kotlinapplication.screen.ButtonScreen
 import com.example.kotlinapplication.screen.FormsInputScreen
 import com.example.kotlinapplication.screen.GlobalTokenColorScreen
@@ -15,6 +16,7 @@ import com.example.kotlinapplication.screen.HomeScreen
 import com.example.kotlinapplication.screen.ListItemScreen
 import com.example.kotlinapplication.screen.SelectionScreen
 import com.example.kotlinapplication.screen.SheetAndModalScreen
+import com.example.kotlinapplication.screen.SnackbarScreen
 import com.example.kotlinapplication.screen.TextStyleScreen
 import com.example.kotlinapplication.screen.TimePickerScreen
 import com.example.kotlinapplication.screen.TokenSizeScreen
@@ -27,6 +29,9 @@ fun NavGraph(navHostController: NavHostController, modifier: Modifier = Modifier
         }
         composable<Routes.ApiScreen> {
             ApiScreen()
+        }
+        composable<Routes.AvatarScreen> {
+            AvatarScreen()
         }
         composable<Routes.ButtonScreen> {
             ButtonScreen()
@@ -45,6 +50,9 @@ fun NavGraph(navHostController: NavHostController, modifier: Modifier = Modifier
         }
         composable<Routes.ListItemScreen> {
             ListItemScreen()
+        }
+        composable<Routes.SnackbarScreen> {
+            SnackbarScreen()
         }
         composable<Routes.SelectionScreen> {
             SelectionScreen()

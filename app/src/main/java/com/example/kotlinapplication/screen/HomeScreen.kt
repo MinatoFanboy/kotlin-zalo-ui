@@ -21,6 +21,7 @@ import com.example.kotlinapplication.ui.theme.LocalZaColors
 import com.example.kotlinapplication.ui.theme.LocalZaTypography
 import com.example.kotlinapplication.ui.theme.blue60
 import com.example.kotlinapplication.ui.theme.green60
+import com.example.kotlinapplication.ui.theme.pink60
 import com.example.kotlinapplication.ui.theme.purple60
 import com.example.kotlinapplication.ui.theme.red60
 import com.example.kotlinapplication.ui.theme.skyBlue60
@@ -114,6 +115,26 @@ fun HomeScreen(navHostController: NavHostController) {
                         },
                         onClick = {
                             navHostController.navigate(Routes.ButtonScreen)
+                        }
+                    )
+
+                    ExpandableListItem(
+                        name = "Avatar",
+                        trailing = {
+                            ZaIcon("\uEA61", color = pink60, size = 24.sp)
+                        },
+                        onClick = {
+                            navHostController.navigate(Routes.AvatarScreen)
+                        }
+                    )
+
+                    ExpandableListItem(
+                        name = "Loading, Toast",
+                        trailing = {
+                            ZaIcon("\uE94A", color = pink60, size = 24.sp)
+                        },
+                        onClick = {
+                            navHostController.navigate(Routes.SnackbarScreen)
                         }
                     )
                 },

@@ -11,6 +11,9 @@ sealed class Routes {
     object ApiScreen
 
     @Serializable
+    object AvatarScreen
+
+    @Serializable
     object ButtonScreen
 
     @Serializable
@@ -33,6 +36,9 @@ sealed class Routes {
 
     @Serializable
     object SheetAndModalScreen
+
+    @Serializable
+    object SnackbarScreen
 
     @Serializable
     object TextStyleScreen

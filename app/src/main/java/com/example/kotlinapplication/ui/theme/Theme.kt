@@ -71,7 +71,8 @@ data class ZaColorSchemes(
     val sliderInactive: Color,
     val fabBackground: Color,
     val fabIcon: Color,
-    val fabBorder: Color
+    val fabBorder: Color,
+    val snackbarContainer: Color
 )
 
 data class ZaTypographySchemes(
@@ -156,6 +157,7 @@ private val DarkColorSchemes = ZaColorSchemes(
     fabIcon = black100,
     /** Slider */
     sliderInactive = Color(0xFF575757),
+    snackbarContainer = Color(0xFF575757),
 )
 
 private val LightColorSchemes = ZaColorSchemes(
@@ -223,6 +225,7 @@ private val LightColorSchemes = ZaColorSchemes(
     fabIcon = white100,
     /** Slider */
     sliderInactive = Color(0xFFC2C7CB),
+    snackbarContainer = neutralGray90,
 )
 
 private val AppTypography = ZaTypographySchemes(
