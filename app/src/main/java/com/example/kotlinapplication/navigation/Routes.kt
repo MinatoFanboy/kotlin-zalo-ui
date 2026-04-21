@@ -29,7 +29,13 @@ sealed class Routes {
     object HomeScreen
 
     @Serializable
+    object LibraryIconsScreen
+
+    @Serializable
     object ListItemScreen
+
+    @Serializable
+    object RadiusScreen
 
     @Serializable
     object SelectionScreen
@@ -39,6 +45,9 @@ sealed class Routes {
 
     @Serializable
     object SnackbarScreen
+
+    @Serializable
+    object SpacingSystemScreen
 
     @Serializable
     object TextStyleScreen

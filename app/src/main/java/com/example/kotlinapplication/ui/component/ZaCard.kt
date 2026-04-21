@@ -21,6 +21,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.example.kotlinapplication.ui.theme.LocalZaColors
 import com.example.kotlinapplication.ui.theme.LocalZaTypography
+import com.example.kotlinapplication.ui.theme.blue60
 
 @Composable
 fun ZaCard(
@@ -32,6 +33,7 @@ fun ZaCard(
     space: Int = 16,
     trailing: @Composable () -> Unit,
     nameStyle: TextStyle? = null,
+    nameHighlight: Boolean = false
 ) {
     Column(
         modifier = modifier
@@ -52,7 +54,7 @@ fun ZaCard(
                 name?.takeIf { it.isNotBlank() }?.let {
                     Text(
                         it,
-                        color = LocalZaColors.current.text1,
+                        color = if (nameHighlight) blue60 else LocalZaColors.current.text1,
                         style = nameStyle ?: LocalZaTypography.current.titleSmall
                     )
                 }

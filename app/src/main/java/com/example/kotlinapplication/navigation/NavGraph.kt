@@ -13,10 +13,13 @@ import com.example.kotlinapplication.screen.FormsInputScreen
 import com.example.kotlinapplication.screen.GlobalTokenColorScreen
 import com.example.kotlinapplication.screen.GradientScreen
 import com.example.kotlinapplication.screen.HomeScreen
+import com.example.kotlinapplication.screen.LibraryIconsScreen
 import com.example.kotlinapplication.screen.ListItemScreen
+import com.example.kotlinapplication.screen.RadiusScreen
 import com.example.kotlinapplication.screen.SelectionScreen
 import com.example.kotlinapplication.screen.SheetAndModalScreen
 import com.example.kotlinapplication.screen.SnackbarScreen
+import com.example.kotlinapplication.screen.SpacingSystemScreen
 import com.example.kotlinapplication.screen.TextStyleScreen
 import com.example.kotlinapplication.screen.TimePickerScreen
 import com.example.kotlinapplication.screen.TokenSizeScreen
@@ -48,8 +51,14 @@ fun NavGraph(navHostController: NavHostController, modifier: Modifier = Modifier
         composable<Routes.HomeScreen> {
             HomeScreen(navHostController = navHostController)
         }
+        composable<Routes.LibraryIconsScreen> {
+            LibraryIconsScreen()
+        }
         composable<Routes.ListItemScreen> {
             ListItemScreen()
+        }
+        composable<Routes.RadiusScreen> {
+            RadiusScreen()
         }
         composable<Routes.SnackbarScreen> {
             SnackbarScreen()
@@ -59,6 +68,9 @@ fun NavGraph(navHostController: NavHostController, modifier: Modifier = Modifier
         }
         composable<Routes.SheetAndModalScreen> {
             SheetAndModalScreen()
+        }
+        composable<Routes.SpacingSystemScreen> {
+            SpacingSystemScreen()
         }
         composable<Routes.TextStyleScreen> {
             TextStyleScreen()

@@ -21,6 +21,7 @@ import com.example.kotlinapplication.ui.theme.LocalZaColors
 import com.example.kotlinapplication.ui.theme.LocalZaTypography
 import com.example.kotlinapplication.ui.theme.blue60
 import com.example.kotlinapplication.ui.theme.green60
+import com.example.kotlinapplication.ui.theme.orange60
 import com.example.kotlinapplication.ui.theme.pink60
 import com.example.kotlinapplication.ui.theme.purple60
 import com.example.kotlinapplication.ui.theme.red60
@@ -129,12 +130,42 @@ fun HomeScreen(navHostController: NavHostController) {
                     )
 
                     ExpandableListItem(
+                        name = "Radius",
+                        trailing = {
+                            ZaIcon("\uE939", color = orange60, size = 24.sp)
+                        },
+                        onClick = {
+                            navHostController.navigate(Routes.RadiusScreen)
+                        }
+                    )
+
+                    ExpandableListItem(
                         name = "Loading, Toast",
                         trailing = {
                             ZaIcon("\uE94A", color = pink60, size = 24.sp)
                         },
                         onClick = {
                             navHostController.navigate(Routes.SnackbarScreen)
+                        }
+                    )
+
+                    ExpandableListItem(
+                        name = "Spacing System",
+                        trailing = {
+                            ZaIcon("\uE948", color = pink60, size = 24.sp)
+                        },
+                        onClick = {
+                            navHostController.navigate(Routes.SpacingSystemScreen)
+                        }
+                    )
+
+                    ExpandableListItem(
+                        name = "Library Icons",
+                        trailing = {
+                            ZaIcon("\uE974", color = red60, size = 24.sp)
+                        },
+                        onClick = {
+                            navHostController.navigate(Routes.LibraryIconsScreen)
                         }
                     )
                 },
