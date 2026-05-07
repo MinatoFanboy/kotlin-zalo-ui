@@ -168,6 +168,16 @@ fun HomeScreen(navHostController: NavHostController) {
                             navHostController.navigate(Routes.LibraryIconsScreen)
                         }
                     )
+
+                    ExpandableListItem(
+                        name = "Project",
+                        trailing = {
+                            ZaIcon("\uEA26", color = blue60, size = 24.sp)
+                        },
+                        onClick = {
+                            navHostController.navigate(Routes.ApiScreen)
+                        }
+                    )
                 },
                 nameStyle = LocalZaTypography.current.headingXLarge
             )

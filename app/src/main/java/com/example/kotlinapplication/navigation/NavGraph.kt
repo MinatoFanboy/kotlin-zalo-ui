@@ -16,6 +16,7 @@ import com.example.kotlinapplication.screen.HomeScreen
 import com.example.kotlinapplication.screen.LibraryIconsScreen
 import com.example.kotlinapplication.screen.ListItemScreen
 import com.example.kotlinapplication.screen.RadiusScreen
+import com.example.kotlinapplication.screen.RoomDbScreen
 import com.example.kotlinapplication.screen.SelectionScreen
 import com.example.kotlinapplication.screen.SheetAndModalScreen
 import com.example.kotlinapplication.screen.SnackbarScreen
@@ -31,7 +32,7 @@ fun NavGraph(navHostController: NavHostController, modifier: Modifier = Modifier
             AliasTokensScreen()
         }
         composable<Routes.ApiScreen> {
-            ApiScreen()
+            ApiScreen(navHostController = navHostController)
         }
         composable<Routes.AvatarScreen> {
             AvatarScreen()
@@ -59,6 +60,9 @@ fun NavGraph(navHostController: NavHostController, modifier: Modifier = Modifier
         }
         composable<Routes.RadiusScreen> {
             RadiusScreen()
+        }
+        composable<Routes.RoomDbScreen> {
+            RoomDbScreen()
         }
         composable<Routes.SnackbarScreen> {
             SnackbarScreen()

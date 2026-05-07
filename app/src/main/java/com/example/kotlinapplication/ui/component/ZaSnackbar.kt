@@ -13,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.kotlinapplication.ui.theme.LocalZaColors
 import com.example.kotlinapplication.ui.theme.LocalZaTypography
@@ -80,10 +79,4 @@ fun ZaSnackbar(
             }
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ZaSnackbarPreview() {
-    ZaSnackbar(message = "Success", type = ZaSnackbarType.INFO, onAction = {})
 }

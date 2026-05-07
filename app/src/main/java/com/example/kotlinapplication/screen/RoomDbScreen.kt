@@ -4,49 +4,35 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavHostController
-import com.example.kotlinapplication.navigation.Routes
-import com.example.kotlinapplication.screen.viewmodel.CustomViewModel
+import coil.compose.SubcomposeAsyncImage
 import com.example.kotlinapplication.screen.viewmodel.LocalViewModel
-import com.example.kotlinapplication.ui.component.ZaButton
-import com.example.kotlinapplication.ui.component.ZaButtonLevel
 import com.example.kotlinapplication.ui.component.ZaCard
 import com.example.kotlinapplication.ui.component.ZaListItem
-import com.example.kotlinapplication.ui.component.ZaSnackbarType
 import com.example.kotlinapplication.ui.component.ZaTodoShimmer
 import com.example.kotlinapplication.ui.theme.LocalZaColors
 import com.example.kotlinapplication.ui.theme.LocalZaTypography
 
 @Composable
-fun ApiScreen(
-    navHostController: NavHostController,
-    viewModel: CustomViewModel = hiltViewModel(),
-    viewModelSnackbar: SnackbarViewModel = hiltViewModel(),
-    localViewModel: LocalViewModel = hiltViewModel(),
-) {
-    val res = viewModel.state.value
-    val resLocal = localViewModel.state.value
+fun RoomDbScreen(localViewModel: LocalViewModel = hiltViewModel()) {
+    val res = localViewModel.state.value
 
     LaunchedEffect(Unit) {
-        viewModel.observeTodos()
-    }
-
-    LaunchedEffect(res.error) {
-        if (res.error.isNotEmpty()) {
-            viewModelSnackbar.showSnackbar(res.error, ZaSnackbarType.ERROR)
-        }
+        localViewModel.getTodos()
     }
 
     LazyColumn(
@@ -87,6 +73,19 @@ fun ApiScreen(
                     item {
                         ZaCard(
                             trailing = {
+                                SubcomposeAsyncImage(
+                                    model = item.localImagePath,
+                                    contentDescription = null,
+                                    contentScale = ContentScale.Crop,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .clip(RoundedCornerShape(8.dp)),
+                                    loading = {},
+                                    error = {
+                                        Text(text = "Error loading image")
+                                    }
+                                )
+
                                 ZaListItem(
                                     contentModifier = Modifier.padding(end = 16.dp),
                                     icon = {
@@ -105,30 +104,6 @@ fun ApiScreen(
                                     subTitle = item.body
                                 )
                             }
-                        )
-                    }
-                }
-
-                item {
-                    Row(horizontalArrangement = Arrangement.spacedBy(24.dp)) {
-                        ZaButton(
-                            modifier = Modifier.weight(1f),
-                            onClick = {
-                                localViewModel.downloadTodos(res.todos)
-                            },
-                            label = "Tải về",
-                            loading = resLocal.isLoading,
-                            fullWidth = true
-                        )
-
-                        ZaButton(
-                            modifier = Modifier.weight(1f),
-                            onClick = {
-                                navHostController.navigate(Routes.RoomDbScreen)
-                            },
-                            label = "Offline",
-                            level = ZaButtonLevel.Secondary,
-                            fullWidth = true
                         )
                     }
                 }

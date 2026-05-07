@@ -28,7 +28,7 @@ class ZaSnackbarVisuals(
     override val actionLabel: String?,
     val type: ZaSnackbarType
 ) : SnackbarVisuals {
-    override val duration: SnackbarDuration = SnackbarDuration.Long
+    override val duration: SnackbarDuration = SnackbarDuration.Short
     override val withDismissAction: Boolean = false
 }
 

@@ -38,6 +38,9 @@ sealed class Routes {
     object RadiusScreen
 
     @Serializable
+    object RoomDbScreen
+
+    @Serializable
     object SelectionScreen
 
     @Serializable

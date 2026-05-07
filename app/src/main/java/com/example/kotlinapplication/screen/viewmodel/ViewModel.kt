@@ -1,4 +1,4 @@
-package com.example.kotlinapplication.di
+package com.example.kotlinapplication.screen.viewmodel
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -27,7 +27,7 @@ class CustomViewModel @Inject constructor(val repo: TodoRepo) : ViewModel() {
             repo.getTodos().collect { result ->
                 _state.value = when (result) {
                     is ResultState.Loading ->
-                        _state.value.copy(isLoading = true)
+                        _state.value.copy(isLoading = true, error = "")
 
                     is ResultState.Success ->
                         ItemState(todos = result.data)
