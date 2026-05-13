@@ -64,7 +64,7 @@ fun ZaCheckbox(
         ) {
             if (value) {
                 ZaIcon(
-                    "\uE942",
+                    name = "\uE942",
                     color = if (enabled) LocalZaColors.current.primary else LocalZaColors.current.selectedDisable,
                     size = if (small) 16.sp else 24.sp
                 )

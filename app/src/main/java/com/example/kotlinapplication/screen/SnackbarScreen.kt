@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.kotlinapplication.ui.component.ZaButton
+import com.example.kotlinapplication.ui.component.ZaButtonLevel
 import com.example.kotlinapplication.ui.component.ZaCard
 import com.example.kotlinapplication.ui.theme.LocalZaColors
 
@@ -26,11 +27,103 @@ fun SnackbarScreen(viewModel: SnackbarViewModel = hiltViewModel()) {
     ) {
         item {
             ZaCard(
-                name = "Default",
+                name = "Snackbar",
                 trailing = {
-                    ZaButton(onClick = {
-                        viewModel.showSnackbar("Informative")
-                    })
+                    ZaButton(
+                        label = "Default with Action",
+                        level = ZaButtonLevel.Secondary,
+                        onClick = {
+                            viewModel.showSnackbar("Informative")
+                        }
+                    )
+
+                    ZaButton(
+                        label = "Text Only",
+                        level = ZaButtonLevel.Secondary,
+                        onClick = {
+                            viewModel.showSnackbar("Informative")
+                        }
+                    )
+
+                    ZaButton(
+                        label = "Vertical Action",
+                        level = ZaButtonLevel.Secondary,
+                        onClick = {
+                            viewModel.showSnackbar("Informative")
+                        }
+                    )
+
+                    ZaButton(
+                        label = "Default Top",
+                        level = ZaButtonLevel.Secondary,
+                        onClick = {
+                            viewModel.showSnackbar("Informative")
+                        }
+                    )
+
+                    ZaButton(
+                        label = "Error",
+                        level = ZaButtonLevel.Secondary,
+                        onClick = {
+                            viewModel.showSnackbar("Informative")
+                        }
+                    )
+
+                    ZaButton(
+                        label = "Success",
+                        level = ZaButtonLevel.Secondary,
+                        onClick = {
+                            viewModel.showSnackbar("Informative")
+                        }
+                    )
+
+                    ZaButton(
+                        label = "Warning",
+                        level = ZaButtonLevel.Secondary,
+                        onClick = {
+                            viewModel.showSnackbar("Informative")
+                        }
+                    )
+
+                    ZaButton(
+                        label = "Loading",
+                        level = ZaButtonLevel.Secondary,
+                        onClick = {
+                            viewModel.showSnackbar("Informative")
+                        }
+                    )
+
+                    ZaButton(
+                        label = "Countdown",
+                        level = ZaButtonLevel.Secondary,
+                        onClick = {
+                            viewModel.showSnackbar("Informative")
+                        }
+                    )
+
+                    ZaButton(
+                        label = "Download",
+                        level = ZaButtonLevel.Secondary,
+                        onClick = {
+                            viewModel.showSnackbar("Informative")
+                        }
+                    )
+
+                    ZaButton(
+                        label = "Connect Wifi",
+                        level = ZaButtonLevel.Secondary,
+                        onClick = {
+                            viewModel.showSnackbar("Informative")
+                        }
+                    )
+
+                    ZaButton(
+                        label = "Disconnect Wifi",
+                        level = ZaButtonLevel.Secondary,
+                        onClick = {
+                            viewModel.showSnackbar("Informative")
+                        }
+                    )
                 }
             )
         }

@@ -50,56 +50,56 @@ fun ZaPopup(
     }
 
     if (showDialog) {
-    Dialog(onDismissRequest = { showDialog = false }) {
-        Card(
-            shape = RoundedCornerShape(12.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = LocalZaColors.current.pageBackground2
-            ),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Column(modifier = Modifier.fillMaxWidth()) {
-                Image(
-                    painter = painterResource(id = R.drawable.sendo),
-                    contentDescription = "My Image",
-                    contentScale = ContentScale.FillBounds,
-                    modifier = Modifier.fillMaxWidth()
-                )
-
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 24.dp, top = 24.dp, end = 24.dp, bottom = 32.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(
-                        text = "This is the title",
-                        color = LocalZaColors.current.text1,
-                        style = LocalZaTypography.current.titleLargeM,
+        Dialog(onDismissRequest = { showDialog = false }) {
+            Card(
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = LocalZaColors.current.pageBackground2
+                ),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.fillMaxWidth()) {
+                    Image(
+                        painter = painterResource(id = R.drawable.sendo),
+                        contentDescription = "My Image",
+                        contentScale = ContentScale.FillBounds,
+                        modifier = Modifier.fillMaxWidth()
                     )
 
-                    Text(
-                        text = "This is a very long message that can be displayed in 3 lines",
-                        textAlign = TextAlign.Center,
-                        color = LocalZaColors.current.text1,
-                        style = LocalZaTypography.current.textNormal,
-                    )
-                }
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 24.dp, top = 24.dp, end = 24.dp, bottom = 32.dp),
+                        verticalArrangement = Arrangement.spacedBy(12.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            text = "This is the title",
+                            color = LocalZaColors.current.text1,
+                            style = LocalZaTypography.current.titleLargeM,
+                        )
 
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 24.dp, bottom = 24.dp, end = 24.dp),
-                ) {
-                    ZaButton(
-                        onClick = { showDialog = false },
-                        label = "Xác nhận",
-                        fullWidth = true
-                    )
+                        Text(
+                            text = "This is a very long message that can be displayed in 3 lines",
+                            textAlign = TextAlign.Center,
+                            color = LocalZaColors.current.text1,
+                            style = LocalZaTypography.current.textNormal,
+                        )
+                    }
+
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 24.dp, bottom = 24.dp, end = 24.dp),
+                    ) {
+                        ZaButton(
+                            onClick = { showDialog = false },
+                            label = "Xác nhận",
+                            fullWidth = true
+                        )
+                    }
                 }
             }
         }
     }
-        }
 }

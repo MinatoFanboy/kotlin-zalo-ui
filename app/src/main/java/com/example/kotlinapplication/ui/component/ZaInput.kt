@@ -153,7 +153,7 @@ fun ZaInput(
                                 contentAlignment = Alignment.Center
                             ) {
                                 ZaIcon(
-                                    "\uE93E",
+                                    name ="\uE93E",
                                     size = 16.sp,
                                     color = green60,
                                 )
@@ -186,7 +186,7 @@ fun ZaInput(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     ZaIcon(
-                        if (hasError) "\uEA7E" else "\uE9AC",
+                        name = if (hasError) "\uEA7E" else "\uE9AC",
                         color = if (hasError) red60 else LocalZaColors.current.text2,
                         size = 16.sp
                     )

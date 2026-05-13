@@ -130,7 +130,7 @@ fun ZaDatePicker(
 
                 Box(contentAlignment = Alignment.Center) {
                     ZaIcon(
-                        "\uE92C",
+                        name = "\uE92C",
                         size = 24.sp,
                         color = LocalZaColors.current.text1,
                     )
@@ -144,7 +144,7 @@ fun ZaDatePicker(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         ZaIcon(
-                            if (hasError) "\uEA7E" else "\uE9AC",
+                            name = if (hasError) "\uEA7E" else "\uE9AC",
                             color = if (hasError) red60 else LocalZaColors.current.text2,
                             size = 16.sp
                         )

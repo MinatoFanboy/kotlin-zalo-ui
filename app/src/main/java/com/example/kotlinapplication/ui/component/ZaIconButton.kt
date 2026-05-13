@@ -51,7 +51,7 @@ fun ZaIconButton(
         contentAlignment = Alignment.Center
     ) {
         ZaIcon(
-            icon,
+            name = icon,
             size = size.sp,
             color = LocalZaColors.current.text1
         )

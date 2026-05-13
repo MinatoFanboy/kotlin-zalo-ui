@@ -36,7 +36,7 @@ fun ListItemScreen() {
                         title = "Title",
                         trailing = {
                             ZaIcon(
-                                "\uE947",
+                                name = "\uE947",
                                 color = LocalZaColors.current.text1,
                                 size = 16.sp,
                                 modifier = Modifier.padding(start = 16.dp)
@@ -48,7 +48,7 @@ fun ListItemScreen() {
                         icon = {
                             Box(modifier = Modifier.size(56.dp), contentAlignment = Alignment.Center) {
                                 ZaIcon(
-                                    "\uEA5C",
+                                    name = "\uEA5C",
                                     color = LocalZaColors.current.text2,
                                 )
                             }
@@ -56,7 +56,7 @@ fun ListItemScreen() {
                         title = "Sample  text title",
                         trailing = {
                             ZaIcon(
-                                "\uE941",
+                                name = "\uE941",
                                 color = LocalZaColors.current.primary,
                                 size = 24.sp,
                                 modifier = Modifier.padding(start = 16.dp)
@@ -71,7 +71,7 @@ fun ListItemScreen() {
                         subTitle = "Subtitle",
                         trailing = {
                             ZaIcon(
-                                "\uE947",
+                                name = "\uE947",
                                 color = LocalZaColors.current.text1,
                                 size = 16.sp,
                                 modifier = Modifier.padding(start = 16.dp)
@@ -83,7 +83,7 @@ fun ListItemScreen() {
                         icon = {
                             Box(modifier = Modifier.size(56.dp), contentAlignment = Alignment.Center) {
                                 ZaIcon(
-                                    "\uE9C5",
+                                    name = "\uE9C5",
                                     color = LocalZaColors.current.text2,
                                 )
                             }

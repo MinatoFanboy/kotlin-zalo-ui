@@ -30,6 +30,10 @@ fun ThemeToggleFAB(
         ),
         containerColor = LocalZaColors.current.fabBackground
     ) {
-        ZaIcon(if (isDarkTheme) "\uEA45" else "\uE9CC", size = 20.sp, color = LocalZaColors.current.fabIcon)
+        ZaIcon(
+            name = if (isDarkTheme) "\uEA45" else "\uE9CC",
+            size = 20.sp,
+            color = LocalZaColors.current.fabIcon
+        )
     }
 }

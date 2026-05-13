@@ -28,7 +28,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.kotlinapplication.ui.theme.LocalZaColors
 import com.example.kotlinapplication.ui.theme.LocalZaTypography
@@ -112,10 +111,4 @@ fun ZaSwitch(
             )
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ZaSwitchPreview() {
-    ZaSwitch(onCheckedChanged = {}, checked = true, enabled = false)
 }

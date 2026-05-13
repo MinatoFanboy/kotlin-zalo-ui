@@ -74,7 +74,7 @@ fun ZaCustomSheet(
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.TopEnd) {
-                        ZaIcon("\uE9AD", color = LocalZaColors.current.text2)
+                        ZaIcon(name = "\uE9AD", color = LocalZaColors.current.text2)
 
                         Box(
                             modifier = Modifier.fillMaxWidth(),

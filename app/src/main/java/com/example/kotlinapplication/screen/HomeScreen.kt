@@ -26,6 +26,7 @@ import com.example.kotlinapplication.ui.theme.pink60
 import com.example.kotlinapplication.ui.theme.purple60
 import com.example.kotlinapplication.ui.theme.red60
 import com.example.kotlinapplication.ui.theme.skyBlue60
+import com.example.kotlinapplication.ui.theme.yellow60
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -48,7 +49,7 @@ fun HomeScreen(navHostController: NavHostController) {
                     ExpandableListItem(
                         name = "Input Field",
                         trailing = {
-                            ZaIcon("\uE988", color = blue60, size = 24.sp)
+                            ZaIcon(name = "\uE988", color = blue60, size = 24.sp)
                         },
                         children = listOf(
                             ExpandableUiChild("Forms Input", onClick = {
@@ -69,7 +70,7 @@ fun HomeScreen(navHostController: NavHostController) {
                     ExpandableListItem(
                         name = "Typography",
                         trailing = {
-                            ZaIcon("\uE978", color = skyBlue60, size = 24.sp)
+                            ZaIcon(name = "\uE978", color = skyBlue60, size = 24.sp)
                         },
                         children = listOf(
                             ExpandableUiChild("Token Size", onClick = {
@@ -84,7 +85,7 @@ fun HomeScreen(navHostController: NavHostController) {
                     ExpandableListItem(
                         name = "Colors",
                         trailing = {
-                            ZaIcon("\uEA40", color = purple60, size = 24.sp)
+                            ZaIcon(name = "\uEA40", color = purple60, size = 24.sp)
                         },
                         children = listOf(
                             ExpandableUiChild("Global Token Color", onClick = {
@@ -102,7 +103,7 @@ fun HomeScreen(navHostController: NavHostController) {
                     ExpandableListItem(
                         name = "Sheet & Modal",
                         trailing = {
-                            ZaIcon("\uEA58", color = green60, size = 24.sp)
+                            ZaIcon(name = "\uEA58", color = green60, size = 24.sp)
                         },
                         onClick = {
                             navHostController.navigate(Routes.SheetAndModalScreen)
@@ -112,7 +113,7 @@ fun HomeScreen(navHostController: NavHostController) {
                     ExpandableListItem(
                         name = "Buttons",
                         trailing = {
-                            ZaIcon("\uE936", color = red60, size = 24.sp)
+                            ZaIcon(name = "\uE936", color = red60, size = 24.sp)
                         },
                         onClick = {
                             navHostController.navigate(Routes.ButtonScreen)
@@ -122,7 +123,7 @@ fun HomeScreen(navHostController: NavHostController) {
                     ExpandableListItem(
                         name = "Avatar",
                         trailing = {
-                            ZaIcon("\uEA61", color = pink60, size = 24.sp)
+                            ZaIcon(name = "\uEA61", color = pink60, size = 24.sp)
                         },
                         onClick = {
                             navHostController.navigate(Routes.AvatarScreen)
@@ -132,7 +133,7 @@ fun HomeScreen(navHostController: NavHostController) {
                     ExpandableListItem(
                         name = "Radius",
                         trailing = {
-                            ZaIcon("\uE939", color = orange60, size = 24.sp)
+                            ZaIcon(name = "\uE939", color = orange60, size = 24.sp)
                         },
                         onClick = {
                             navHostController.navigate(Routes.RadiusScreen)
@@ -142,8 +143,16 @@ fun HomeScreen(navHostController: NavHostController) {
                     ExpandableListItem(
                         name = "Loading, Toast",
                         trailing = {
-                            ZaIcon("\uE94A", color = pink60, size = 24.sp)
+                            ZaIcon(name = "\uE94A", color = pink60, size = 24.sp)
                         },
+                        onClick = {
+                            navHostController.navigate(Routes.LoadingScreen)
+                        }
+                    )
+
+                    ExpandableListItem(
+                        name = "Snackbar",
+                        trailing = {},
                         onClick = {
                             navHostController.navigate(Routes.SnackbarScreen)
                         }
@@ -152,7 +161,7 @@ fun HomeScreen(navHostController: NavHostController) {
                     ExpandableListItem(
                         name = "Spacing System",
                         trailing = {
-                            ZaIcon("\uE948", color = pink60, size = 24.sp)
+                            ZaIcon(name = "\uE948", color = yellow60, size = 24.sp)
                         },
                         onClick = {
                             navHostController.navigate(Routes.SpacingSystemScreen)
@@ -162,7 +171,7 @@ fun HomeScreen(navHostController: NavHostController) {
                     ExpandableListItem(
                         name = "Library Icons",
                         trailing = {
-                            ZaIcon("\uE974", color = red60, size = 24.sp)
+                            ZaIcon(name = "\uE974", color = red60, size = 24.sp)
                         },
                         onClick = {
                             navHostController.navigate(Routes.LibraryIconsScreen)
@@ -170,9 +179,19 @@ fun HomeScreen(navHostController: NavHostController) {
                     )
 
                     ExpandableListItem(
+                        name = "Layouts",
+                        trailing = {
+                            ZaIcon(name = "\uE987", color = blue60, size = 24.sp)
+                        },
+                        onClick = {
+                            navHostController.navigate(Routes.LayoutsScreen)
+                        }
+                    )
+
+                    ExpandableListItem(
                         name = "Project",
                         trailing = {
-                            ZaIcon("\uEA26", color = blue60, size = 24.sp)
+                            ZaIcon(name = "\uEA26", color = blue60, size = 24.sp)
                         },
                         onClick = {
                             navHostController.navigate(Routes.ApiScreen)

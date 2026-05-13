@@ -952,7 +952,7 @@ fun AvatarScreen() {
                                         .size(14.dp)
                                         .background(white100, CircleShape).padding(2.dp)
                                 ) {
-                                    ZaIcon("\uE921", color = red60, size = 10.5.sp)
+                                    ZaIcon(name ="\uE921", color = red60, size = 10.5.sp)
                                 }
                             }
                         }

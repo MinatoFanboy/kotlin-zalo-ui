@@ -29,10 +29,16 @@ sealed class Routes {
     object HomeScreen
 
     @Serializable
+    object LayoutsScreen
+
+    @Serializable
     object LibraryIconsScreen
 
     @Serializable
     object ListItemScreen
+
+    @Serializable
+    object LoadingScreen
 
     @Serializable
     object RadiusScreen

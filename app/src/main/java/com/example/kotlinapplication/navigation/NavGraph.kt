@@ -13,8 +13,10 @@ import com.example.kotlinapplication.screen.FormsInputScreen
 import com.example.kotlinapplication.screen.GlobalTokenColorScreen
 import com.example.kotlinapplication.screen.GradientScreen
 import com.example.kotlinapplication.screen.HomeScreen
+import com.example.kotlinapplication.screen.LayoutsScreen
 import com.example.kotlinapplication.screen.LibraryIconsScreen
 import com.example.kotlinapplication.screen.ListItemScreen
+import com.example.kotlinapplication.screen.LoadingScreen
 import com.example.kotlinapplication.screen.RadiusScreen
 import com.example.kotlinapplication.screen.RoomDbScreen
 import com.example.kotlinapplication.screen.SelectionScreen
@@ -52,11 +54,17 @@ fun NavGraph(navHostController: NavHostController, modifier: Modifier = Modifier
         composable<Routes.HomeScreen> {
             HomeScreen(navHostController = navHostController)
         }
+        composable<Routes.LayoutsScreen> {
+            LayoutsScreen()
+        }
         composable<Routes.LibraryIconsScreen> {
             LibraryIconsScreen()
         }
         composable<Routes.ListItemScreen> {
             ListItemScreen()
+        }
+        composable<Routes.LoadingScreen> {
+            LoadingScreen()
         }
         composable<Routes.RadiusScreen> {
             RadiusScreen()

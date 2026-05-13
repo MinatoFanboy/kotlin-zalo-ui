@@ -193,7 +193,7 @@ fun ZaButton(
                     )
                 } else {
                     if (iconPrefix.isNotEmpty()) {
-                        ZaIcon(iconPrefix, color = textColor)
+                        ZaIcon(name = iconPrefix, color = textColor)
 
                         Spacer(Modifier.width(8.dp))
                     }
@@ -209,7 +209,7 @@ fun ZaButton(
                     if (iconSuffix.isNotEmpty()) {
                         Spacer(Modifier.width(8.dp))
 
-                        ZaIcon(iconSuffix, color = textColor)
+                        ZaIcon(name = iconSuffix, color = textColor)
                     }
                 }
             }

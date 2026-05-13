@@ -79,7 +79,7 @@ fun ZaSearch(
                 horizontalArrangement = Arrangement.spacedBy(if (fullSize == true) 12.dp else 8.dp)
             ) {
                 ZaIcon(
-                    "\uEA24",
+                    name = "\uEA24",
                     size = 24.sp,
                     color = LocalZaColors.current.text1
                 )

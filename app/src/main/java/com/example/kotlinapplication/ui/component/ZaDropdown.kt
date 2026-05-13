@@ -78,7 +78,7 @@ fun ZaDropdown(
 
             Box(contentAlignment = Alignment.Center) {
                 ZaIcon(
-                    "\uE945",
+                    name = "\uE945",
                     size = 24.sp,
                     color = LocalZaColors.current.text1,
                 )
@@ -92,7 +92,7 @@ fun ZaDropdown(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     ZaIcon(
-                        if (hasError) "\uEA7E" else "\uE9AC",
+                        name = if (hasError) "\uEA7E" else "\uE9AC",
                         color = if (hasError) red60 else LocalZaColors.current.text2,
                         size = 16.sp
                     )

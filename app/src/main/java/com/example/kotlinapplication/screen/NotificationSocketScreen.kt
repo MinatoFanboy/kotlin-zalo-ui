@@ -18,10 +18,7 @@ import okhttp3.Request
 import okhttp3.WebSocket
 import okhttp3.WebSocketListener
 
-class RealtimeClient(
-    private val onMessage: (String) -> Unit
-) {
-
+class RealtimeClient(private val onMessage: (String) -> Unit) {
     private val client = OkHttpClient()
 
     fun connect() {

@@ -13,8 +13,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.foundation.text.input.InputTransformation
-import androidx.compose.foundation.text.input.maxLength
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -27,11 +25,8 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.kotlinapplication.ui.theme.KotlinApplicationTheme
 import com.example.kotlinapplication.ui.theme.LocalZaColors
 import com.example.kotlinapplication.ui.theme.LocalZaTypography
 import com.example.kotlinapplication.ui.theme.red60
@@ -157,7 +152,7 @@ fun ZaTextArea(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     ZaIcon(
-                        if (hasError) "\uEA7E" else "\uE9AC",
+                        name = if (hasError) "\uEA7E" else "\uE9AC",
                         color = if (hasError) red60 else LocalZaColors.current.text2,
                         size = 16.sp
                     )
@@ -170,15 +165,5 @@ fun ZaTextArea(
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ZaTextAreaPreview() {
-    var value by remember { mutableStateOf(TextFieldValue("Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).")) }
-
-    KotlinApplicationTheme {
-        ZaTextArea(value = value, onValueChange = {})
     }
 }

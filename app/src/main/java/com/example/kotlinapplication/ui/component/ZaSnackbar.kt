@@ -59,7 +59,7 @@ fun ZaSnackbar(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            ZaIcon(iconName, color = iconColor)
+            ZaIcon(name = iconName, color = iconColor)
 
             Text(
                 modifier = Modifier.weight(1f),

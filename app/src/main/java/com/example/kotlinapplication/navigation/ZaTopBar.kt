@@ -49,7 +49,7 @@ fun ZaTopBar(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             IconButton(onClick = onBackClick) {
-                ZaIcon("\uE946", color = LocalZaColors.current.text1)
+                ZaIcon(name = "\uE946", color = LocalZaColors.current.text1)
             }
 
             Text(
@@ -72,7 +72,7 @@ fun ZaTopBar(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 IconButton(onClick = onBackClick, modifier = Modifier.size(28.dp).padding(end = 4.5.dp)) {
-                    ZaIcon("\uE9C6", color = LocalZaColors.current.text1)
+                    ZaIcon(name = "\uE9C6", color = LocalZaColors.current.text1)
                 }
 
                 Box(modifier = Modifier
@@ -82,7 +82,7 @@ fun ZaTopBar(
                 )
 
                 IconButton(onClick = onBackClick, modifier = Modifier.size(28.dp).padding(start = 4.5.dp)) {
-                    ZaIcon("\uE953", color = LocalZaColors.current.text1)
+                    ZaIcon(name = "\uE953", color = LocalZaColors.current.text1)
                 }
             }
         }

@@ -17,10 +17,10 @@ val FontIcon = FontFamily(
 
 @Composable
 fun ZaIcon(
+    modifier: Modifier = Modifier,
     name: String,
     color: Color = Color.Unspecified,
-    size: TextUnit = 24.sp,
-    modifier: Modifier = Modifier
+    size: TextUnit = 24.sp
 ) {
     Text(
         text = name,

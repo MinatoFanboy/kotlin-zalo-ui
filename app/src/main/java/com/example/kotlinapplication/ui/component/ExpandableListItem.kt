@@ -100,7 +100,7 @@ fun ExpandableListItem(
                             modifier = Modifier.weight(1f)
                         )
 
-                        ZaIcon("\uE947", color = LocalZaColors.current.text1)
+                        ZaIcon(name = "\uE947", color = LocalZaColors.current.text1)
                     }
 
                     if (index != children.lastIndex) {

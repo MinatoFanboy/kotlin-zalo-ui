@@ -45,7 +45,7 @@ fun LibraryIconsScreen() {
                             )
 
                             ZaIcon(
-                                "\uE9CE",
+                                name = "\uE9CE",
                                 color = LocalZaColors.current.text1,
                             )
                         }
@@ -61,7 +61,7 @@ fun LibraryIconsScreen() {
                             )
 
                             ZaIcon(
-                                "\uE9CE",
+                                name = "\uE9CE",
                                 color = LocalZaColors.current.text2,
                             )
                         }
@@ -77,7 +77,7 @@ fun LibraryIconsScreen() {
                             )
 
                             ZaIcon(
-                                "\uE9CE",
+                                name = "\uE9CE",
                                 color = LocalZaColors.current.text3,
                             )
                         }
@@ -102,7 +102,7 @@ fun LibraryIconsScreen() {
                             )
 
                             ZaIcon(
-                                "\uE9CE",
+                                name = "\uE9CE",
                                 color = LocalZaColors.current.text1,
                                 size = 16.sp
                             )
@@ -119,7 +119,7 @@ fun LibraryIconsScreen() {
                             )
 
                             ZaIcon(
-                                "\uE9CE",
+                                name = "\uE9CE",
                                 color = LocalZaColors.current.text1,
                             )
                         }
@@ -135,7 +135,7 @@ fun LibraryIconsScreen() {
                             )
 
                             ZaIcon(
-                                "\uE9CE",
+                                name = "\uE9CE",
                                 color = LocalZaColors.current.text1,
                                 size = 32.sp
                             )
@@ -152,7 +152,7 @@ fun LibraryIconsScreen() {
                             )
 
                             ZaIcon(
-                                "\uE9CE",
+                                name = "\uE9CE",
                                 color = LocalZaColors.current.text1,
                                 size = 40.sp
                             )
@@ -178,7 +178,7 @@ fun LibraryIconsScreen() {
                             )
 
                             ZaIcon(
-                                "\uE9CE",
+                                name = "\uE9CE",
                                 color = LocalZaColors.current.text1
                             )
                         }
@@ -194,7 +194,7 @@ fun LibraryIconsScreen() {
                             )
 
                             ZaIcon(
-                                "\uE9CD",
+                                name = "\uE9CD",
                                 color = LocalZaColors.current.text1,
                             )
                         }
