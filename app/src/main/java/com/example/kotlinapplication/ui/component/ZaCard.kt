@@ -5,6 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -26,6 +27,8 @@ import com.example.kotlinapplication.ui.theme.blue60
 @Composable
 fun ZaCard(
     modifier: Modifier = Modifier,
+    modifierPadding: PaddingValues = PaddingValues(16.dp),
+    modifierTitle: Modifier = Modifier,
     name: String? = null,
     subName: String? = null,
     highlightName: String? = null,
@@ -45,13 +48,12 @@ fun ZaCard(
                 shape = RoundedCornerShape(8.dp)
             )
             .background(LocalZaColors.current.pageBackground2)
-            .padding(16.dp),
+            .padding(modifierPadding),
         verticalArrangement = Arrangement.spacedBy(space.dp)
     ) {
         if (!name.isNullOrBlank() || !subName.isNullOrBlank()) {
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-
-                name?.takeIf { it.isNotBlank() }?.let {
+            Column(modifier = modifierTitle, verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    name?.takeIf { it.isNotBlank() }?.let {
                     Text(
                         it,
                         color = if (nameHighlight) blue60 else LocalZaColors.current.text1,

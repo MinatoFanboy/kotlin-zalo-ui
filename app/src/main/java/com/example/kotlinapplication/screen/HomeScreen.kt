@@ -189,6 +189,16 @@ fun HomeScreen(navHostController: NavHostController) {
                     )
 
                     ExpandableListItem(
+                        name = "Calendar",
+                        trailing = {
+                            ZaIcon(name = "\uE92C", color = red60, size = 24.sp)
+                        },
+                        onClick = {
+                            navHostController.navigate(Routes.CalendarScreen)
+                        }
+                    )
+
+                    ExpandableListItem(
                         name = "Project",
                         trailing = {
                             ZaIcon(name = "\uEA26", color = blue60, size = 24.sp)

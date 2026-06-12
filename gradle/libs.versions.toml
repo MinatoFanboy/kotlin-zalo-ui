@@ -22,6 +22,7 @@ coroutines = "1.7.3"
 okhttp = "4.9.3"
 roomDb = "2.6.1"
 coilCompose = "2.6.0"
+jdk = "2.1.5"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -58,6 +59,8 @@ room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomDb" 
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomDb" }
 #Coil
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilCompose" }
+#jdk
+tool-jdk = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "jdk" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

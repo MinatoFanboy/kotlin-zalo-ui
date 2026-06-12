@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.isUnspecified
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -27,7 +28,8 @@ fun ZaIconButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     icon: String,
-    size: Int = 24
+    size: Int = 24,
+    color: Color = Color.Unspecified
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
@@ -53,7 +55,7 @@ fun ZaIconButton(
         ZaIcon(
             name = icon,
             size = size.sp,
-            color = LocalZaColors.current.text1
+            color = if (color.isUnspecified) LocalZaColors.current.text1 else color
         )
     }
 }

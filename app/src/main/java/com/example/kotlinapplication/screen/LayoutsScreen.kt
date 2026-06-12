@@ -30,13 +30,15 @@ fun LayoutsScreen() {
         modifier = Modifier
             .fillMaxSize()
             .background(LocalZaColors.current.pageBackground3)
-            .padding(16.dp),
+            .padding(vertical = 16.dp),
         verticalArrangement = Arrangement.spacedBy(24.dp),
         contentPadding = PaddingValues(bottom = 16.dp)
     ) {
         item {
             ZaCard(
                 name = "Flex Layout",
+                modifierPadding = PaddingValues(vertical = 24.dp),
+                modifierTitle = Modifier.padding(horizontal = 16.dp),
                 trailing = {
                     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         Row(
@@ -266,6 +268,8 @@ fun LayoutsScreen() {
         item {
             ZaCard(
                 name = "Grid Layout",
+                modifierPadding = PaddingValues(vertical = 24.dp),
+                modifierTitle = Modifier.padding(horizontal = 16.dp),
                 trailing = {
                     Column(modifier = Modifier.border(1.dp, LocalZaColors.current.layoutBackground)) {
                         Row(modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min)) {

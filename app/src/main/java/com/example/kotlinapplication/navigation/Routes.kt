@@ -17,6 +17,9 @@ sealed class Routes {
     object ButtonScreen
 
     @Serializable
+    object CalendarScreen
+
+    @Serializable
     object FormsInputScreen
 
     @Serializable

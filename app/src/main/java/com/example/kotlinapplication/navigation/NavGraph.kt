@@ -9,6 +9,7 @@ import com.example.kotlinapplication.screen.AliasTokensScreen
 import com.example.kotlinapplication.screen.ApiScreen
 import com.example.kotlinapplication.screen.AvatarScreen
 import com.example.kotlinapplication.screen.ButtonScreen
+import com.example.kotlinapplication.screen.CalendarScreen
 import com.example.kotlinapplication.screen.FormsInputScreen
 import com.example.kotlinapplication.screen.GlobalTokenColorScreen
 import com.example.kotlinapplication.screen.GradientScreen
@@ -41,6 +42,9 @@ fun NavGraph(navHostController: NavHostController, modifier: Modifier = Modifier
         }
         composable<Routes.ButtonScreen> {
             ButtonScreen()
+        }
+        composable<Routes.CalendarScreen> {
+            CalendarScreen()
         }
         composable<Routes.FormsInputScreen> {
             FormsInputScreen()

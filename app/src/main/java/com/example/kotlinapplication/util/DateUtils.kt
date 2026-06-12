@@ -1,6 +1,16 @@
 package com.example.kotlinapplication.util
 
+import java.time.format.DateTimeFormatter
 import java.util.Calendar
+import java.util.Locale
+
+object ZaDateFormatters {
+    val CalendarHeaderFormatter: DateTimeFormatter =
+        DateTimeFormatter.ofPattern(
+            "MMMM yyyy",
+            Locale.getDefault()
+        )
+}
 
 object DateUtils {
     fun getTimeMiles(year: Int, month: Int, day: Int): Long {
